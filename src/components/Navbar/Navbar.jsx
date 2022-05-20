@@ -11,6 +11,9 @@ const Navbar = () => {
           <li>
             <Link to="/list">List page</Link>
           </li>
+          <li>
+            <Link to="/todo">Todo page</Link>
+          </li>
         </ul>
       </nav>
     </>
