@@ -1,0 +1,21 @@
+.navbar {
+    padding: 0 15px;
+    width: 100%;
+    background: #000;
+}
+
+.navbar_list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+}
+
+.navbar_item {
+    
+}
+
+.navbar_item a{
+    color: white;
+    font-size: 18px;
+}

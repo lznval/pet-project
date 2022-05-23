@@ -59,11 +59,11 @@ const Todo = () => {
                     <div className="todo">
                         {data.map((item, key) => (
                             <div className={style.todo_body}>
-                                <div className={style.todo_item} key={key}>
+                                <div className={item.complete ? style.todo_item_complete : style.todo_item} key={key}>
                                     <div className={style.todo_id}>
                                         {item.id}.
                                     </div>
-                                    <div className={item.complete ? "todo_text complete" : "todo_text"}>
+                                    <div className={item.complete ? style.todo_text_complete : style.todo_text}>
                                         {item.todo}
                                     </div>                                    
                                 </div>
