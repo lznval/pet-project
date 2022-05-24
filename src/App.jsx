@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import List from "./pages/List/List";
+import Weather from "./pages/Weather/Weather";
 import Home from "./pages/Home/Home";
 import Todo from "./pages/Todo/Todo";
 
@@ -8,7 +8,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={ <Home /> } />
-        <Route path="/list" element={ <List /> } />
+        <Route path="/weather" element={ <Weather /> } />
         <Route path="/todo" element={ <Todo /> } />
       </Routes>
     </>

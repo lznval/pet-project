@@ -1,0 +1,65 @@
+.todo {
+
+    &_body {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    &_item {
+        min-width: 200px;
+        max-width: 400px;
+        background: lightblue;
+        border-radius: 15px;
+        padding: 5px 20px;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        display: flex;
+        align-items: center;
+
+        &_complete {
+            min-width: 200px;
+            max-width: 400px;
+            background: lightblue;
+            border-radius: 15px;
+            padding: 5px 20px;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            opacity: 0.6;
+        }
+    }
+
+    &_id {
+        font-size: 16px;
+        font-weight: bold;
+        margin-right: 20px;
+    }
+
+    &_text {
+        font-size: 20px;
+        &_complete {
+            text-decoration: line-through;
+            font-size: 20px;
+        }
+    }
+
+    &_complete {
+        font-weight: bold;
+        font-size: 26px;
+        color: green;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 20px;
+        cursor: pointer;
+    }
+
+    &_close {
+        font-weight: bold;
+        font-size: 26px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
