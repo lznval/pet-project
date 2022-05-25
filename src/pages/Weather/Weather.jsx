@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
@@ -5,10 +6,8 @@ import style from "./Weather.module.scss";
 
 const Weather = () => {
 
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [weather, setWeather] = useState([]);
-    const [locations, setLocations] = useState("london");
+    const API_KEY = "6a7b59f97d4790bd13ce26e1a93d2a9b";
+    const API_URL = "https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}"
 
     const [value, setValue] = useState("");
     const [city, setCity] = useState("");
@@ -22,13 +21,18 @@ const Weather = () => {
         setValue("");
     };
 
-    const getWeather = () => {
-        fetch(
-            `http://api.openweathermap.org/data/2.5/weather?q=${locations}&APPID={APP_ID}&units=metric`
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-        )
+        axios
+            .get(`https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=${API_KEY}`)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.error(error);
+            })
     }
-
     return (
         <>
             <div className="wrapper">
@@ -40,7 +44,7 @@ const Weather = () => {
                             <input type="text" value={value} onChange={(e) => hadnleChange(e.target.value)} />
                         </div>                        
                         <div className="weather__button">
-                            <button onClick={getCity}>Know weather</button>
+                            <button onClick={(e) => handleSubmit(e)}>Know weather</button>
                             <span>{city}</span>
                         </div>
                         <div className="weather__body">
