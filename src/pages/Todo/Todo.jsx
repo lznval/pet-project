@@ -45,18 +45,19 @@ const Todo = () => {
         <>
             <div className="wrapper">
                 <Navbar />
-                <main>                    
+                <main className={style.main}>                    
                     <h1>Todo page</h1>
-                    <h2>Quantity of tasks: {data.length}</h2>
-                    <form onSubmit={handleSubmit}>
+                    <h2 className={style.todo__quantity}>Quantity of tasks: {data.length}</h2>
+                    <form onSubmit={handleSubmit} className={style.todo__form}>
                         <input 
                             type="text" 
                             onChange={handleChange} 
                             value={value}
+                            className={style.todo__input}
                         />
-                        <button>Add task</button>
+                        <button className={style.todo__add}>Add task</button>
                     </form>
-                    <div className="todo">
+                    <div className={style.todo}>
                         {data.map((item, key) => (
                             <div className={style.todo_body}>
                                 <div className={item.complete ? style.todo_item_complete : style.todo_item} key={key}>

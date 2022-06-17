@@ -1,4 +1,39 @@
+.main {
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+}
+
 .todo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    &__form {
+        align-self: center;
+    }
+
+    &__quantity {
+        margin: 0 auto 20px !important;
+    }
+
+    &__input {
+        border-radius: 10px;
+        padding: 5px 10px;
+        margin-right: 20px;
+        font-size: 14px;
+    }
+
+    &__add {
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 5px 10px;
+        background-color: lightblue;
+        cursor: pointer;
+    }
 
     &_body {
         display: flex;

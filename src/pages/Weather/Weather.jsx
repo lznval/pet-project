@@ -15,13 +15,6 @@ const Weather = () => {
         setValue(value)
     };
 
-    const getCity = () => {
-        handleSubmit()
-
-        setCity(value);
-        setValue("");
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
@@ -32,9 +25,8 @@ const Weather = () => {
                 setCity(data);
             })
             .catch((error) => {
-                alert("Error city. Try again")
+                alert("Wrong city. Try again")
             })
-        
     }
 
     return (
