@@ -29,6 +29,22 @@ const Weather = () => {
             })
     }
 
+    const handleKeySubmit = (e) => {
+        if (e.keyCode === 13) {
+            e.preventDefault();
+            axios
+            .get(`https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=${API_KEY}`)
+            
+            .then((response) => {
+                const data = response.data;
+                setCity(data);
+            })
+            .catch((error) => {
+                alert("Wrong city. Try again")
+            })
+        }
+    }
+
     return (
         <>
             <div className="wrapper">
@@ -37,17 +53,17 @@ const Weather = () => {
                     <h1>Weather page</h1>
                     <div className={style.weather}>
                         <div className={style.weather__input}>
-                            <input type="text" value={value} onChange={(e) => hadnleChange(e.target.value)}/>
+                            <input type="text" value={value} onKeyUp={(e) => handleKeySubmit(e)} onChange={(e) => hadnleChange(e.target.value)}/>
                         </div>                        
                         <div className={style.weather__button}>
-                            <button onClick={(e) => handleSubmit(e)}>Know weather</button>
+                            <button onClick={(e) => handleSubmit(e)} >Know weather</button>
                         </div>
                         <div className={style.weather__body}>
                             <div className={style.weather__temperature}><span>Temperature:</span> {city && `${Math.ceil(city.main.temp - 273.15)} °С`}</div>
                             <div className={style.weather__description}><span>Weather:</span> {city && city.weather.map((item) => item.main)}</div>
                             <div className={style.weather__icon}>
-                                {city && city.weather.map((item) => (
-                                    <img src={`https://openweathermap.org/img/wn/${item.icon}@2x.png`} alt="" />
+                                {city && city.weather.map((item, key) => (
+                                    <img src={`https://openweathermap.org/img/wn/${item.icon}@2x.png`} alt={city.weather.map((item) => item.description)} key={key}/>
                                 ))}
                             </div>
                             <div className={style.weather__pressure}><span>Pressure:</span> {city && `${Math.ceil(city.main.pressure / 1.333)} mm Hg`}</div>
